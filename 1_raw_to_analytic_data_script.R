@@ -26,16 +26,16 @@ is_bad_value <- agreeableness_items<1 | agreeableness_items>5
 agreeableness_items[is_bad_value] <- NA
 
 
-View(agreeableness_items)
+#View(agreeableness_items)
 
 psych::describe(affective_commitment_items)
 
 is_bad_value <- affective_commitment_items<1 | affective_commitment_items>7
 affective_commitment_items[is_bad_value] <- NA
 
-View(affective_commitment_items)
+#View(affective_commitment_items)
 
-View(agreeableness_items)
+#View(agreeableness_items)
 
 agreeableness_items <- mutate(agreeableness_items,A5=6-A5)
 
@@ -49,3 +49,7 @@ extroversion <- psych::alpha(as.data.frame(extroversion_items), check.keys=FALSE
 affective_commitment <- psych::alpha(as.data.frame(affective_commitment_items),check.keys=FALSE)$scores
 
 analytic_data <- cbind(categorical_variables,agreeableness,extroversion,affective_commitment)
+
+save(analytic_data,file="study1_analytic_data.RData")
+
+write_csv(analytic_data,path="study1_analytic_data.csv")
