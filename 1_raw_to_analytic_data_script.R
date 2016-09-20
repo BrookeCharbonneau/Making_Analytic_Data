@@ -53,3 +53,6 @@ analytic_data <- cbind(categorical_variables,agreeableness,extroversion,affectiv
 save(analytic_data,file="study1_analytic_data.RData")
 
 write_csv(analytic_data,path="study1_analytic_data.csv")
+
+library(haven)
+write_sav(analytic_data,path="study1_analytic_data.sav")
